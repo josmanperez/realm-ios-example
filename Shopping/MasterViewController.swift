@@ -44,9 +44,9 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-////                let item = items[indexPath.row]
-//                let controller = segue.destination  as! DetailViewController
-//                controller.detailItem = item
+                let item = items[indexPath.row]
+                let controller = segue.destination  as! DetailViewController
+                controller.detailItem = item
             }
         }
     }
@@ -67,6 +67,24 @@ class MasterViewController: UITableViewController {
         cell.textLabel?.text = item.title
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let item = items[indexPath.row]
+            do {
+                try realm.write {
+                    realm.delete(item)
+                }
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } catch {
+                print(error)
+            }
+        }
     }
     
 }
