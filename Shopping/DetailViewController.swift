@@ -15,13 +15,14 @@ protocol DetailViewControllerProtocol: class {
 
 
 class DetailViewController: UIViewController {
-
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var qtyTextField: UITextField!
     @IBOutlet weak var categoryButton: UIButton!
     
     var detailItem: Item?
     let realm = try! Realm()
+    var selectedCategory: Category?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +34,20 @@ class DetailViewController: UIViewController {
         if let item = detailItem {
             titleTextField.text = item.title
             qtyTextField.text = "\(item.qty)"
+            categoryButton.setTitle(item.category?.title, for: .normal)
         }
     }
-
-   
+    
+    // MARK: - Segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCategories" {
+            let controller = segue.destination as! CategoryTableViewController
+            controller.selectedCategory = detailItem?.category
+            controller.delegate = self
+        }
+    }
+    
+    
     // MARK: - IBAction
     
     @IBAction func doneTapped(_ sender: AnyObject) {
@@ -53,7 +64,7 @@ class DetailViewController: UIViewController {
         
         dismiss(animated: true)
     }
-
+    
     func dismiss(animated: Bool) {
         _ = navigationController?.popViewController(animated: animated)
     }
@@ -62,6 +73,7 @@ class DetailViewController: UIViewController {
         let item = Item()
         item.title = title
         item.qty = qty
+        item.category = selectedCategory
         do {
             try realm.write {
                 realm.add(item)
@@ -77,6 +89,7 @@ class DetailViewController: UIViewController {
                 try realm.write {
                     item.title = title
                     item.qty = qty
+                    item.category = selectedCategory
                 }
             } catch {
                 print(error)
@@ -85,6 +98,18 @@ class DetailViewController: UIViewController {
     }
 }
 
+extension DetailViewController: DetailViewControllerProtocol {
+    
+    func selected(category: Category) {
+        selectedCategory = category
+        categoryButton.setTitle(category.title, for: .normal)
+        dismiss(animated: true)
+    }
+    
+    
+    
+    
+}
 
 
 

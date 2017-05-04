@@ -12,6 +12,8 @@
 		99E19D8D1EBA18E1001DC72F /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 99E19D8A1EBA18E0001DC72F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		99E19D8E1EBA18E1001DC72F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E19D8B1EBA18E1001DC72F /* RealmSwift.framework */; };
 		99E19D8F1EBA18E1001DC72F /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 99E19D8B1EBA18E1001DC72F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		99E19D921EBB12B1001DC72F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E19D911EBB12B1001DC72F /* Category.swift */; };
+		99E19D941EBB133F001DC72F /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E19D931EBB133F001DC72F /* CategoryTableViewController.swift */; };
 		B37733611DC2F63D00D03531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37733601DC2F63D00D03531 /* AppDelegate.swift */; };
 		B37733631DC2F63D00D03531 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37733621DC2F63D00D03531 /* MasterViewController.swift */; };
 		B37733651DC2F63D00D03531 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37733641DC2F63D00D03531 /* DetailViewController.swift */; };
@@ -39,6 +41,8 @@
 		81A3C24D1DC7B7C200CBC2A8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		99E19D8A1EBA18E0001DC72F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Realm.framework; sourceTree = "<group>"; };
 		99E19D8B1EBA18E1001DC72F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../RealmSwift.framework; sourceTree = "<group>"; };
+		99E19D911EBB12B1001DC72F /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		99E19D931EBB133F001DC72F /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		B377335D1DC2F63D00D03531 /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37733601DC2F63D00D03531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B37733621DC2F63D00D03531 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				B37733601DC2F63D00D03531 /* AppDelegate.swift */,
 				B37733621DC2F63D00D03531 /* MasterViewController.swift */,
 				B37733641DC2F63D00D03531 /* DetailViewController.swift */,
+				99E19D931EBB133F001DC72F /* CategoryTableViewController.swift */,
 				B37733661DC2F63D00D03531 /* Main.storyboard */,
 				B37733691DC2F63D00D03531 /* Assets.xcassets */,
 				B377336B1DC2F63D00D03531 /* LaunchScreen.storyboard */,
@@ -107,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				81A3C24D1DC7B7C200CBC2A8 /* Item.swift */,
+				99E19D911EBB12B1001DC72F /* Category.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -186,9 +192,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				81A3C24E1DC7B7C200CBC2A8 /* Item.swift in Sources */,
+				99E19D921EBB12B1001DC72F /* Category.swift in Sources */,
 				B37733651DC2F63D00D03531 /* DetailViewController.swift in Sources */,
 				B37733631DC2F63D00D03531 /* MasterViewController.swift in Sources */,
 				B37733611DC2F63D00D03531 /* AppDelegate.swift in Sources */,
+				99E19D941EBB133F001DC72F /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

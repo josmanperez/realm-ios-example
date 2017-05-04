@@ -12,4 +12,5 @@ import RealmSwift
 class Item: Object {
     dynamic var title = ""
     dynamic var qty = 0
+    dynamic var category:Category? // to one relationship
 }
